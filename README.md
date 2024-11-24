@@ -14,16 +14,11 @@ continuación, podrá seleccionar el idioma deseado para la traducción mediante
 desplegable. Una vez traducido el texto, la aplicación permitirá convertirlo a voz y, finalmente,
 exportar el audio generado.
 
-Funcionalidades:
-● La Vista está desarrollada con la librería CustomTkinter, una versión personalizada de
-Tkinter que permite diseñar interfaces más modernas. La interfaz gráfica proporciona una
-experiencia de usuario amigable y simplificada para realizar las tareas de conversión de
-texto a voz. Posee una entrada de texto, selección de idiomas y botones de acción (
-Convertir a voz, Exportar audio y cargar archivo txt)
-● El Controlador es la capa intermedia que conecta la Vista con el Modelo, manejando la
-lógica de la aplicación y gestionando la interacción del usuario. Contiene métodos que se
-encargan de realizar la conversión del texto a audio, traducción del texto (si es necesario)
-y reproducción del audio.
-● El Modelo maneja la conversión de texto a audio y la gestión de idiomas disponibles. A
-pesar de no tener acceso directo a la interfaz de usuario, el Modelo proporciona toda la
-lógica relacionada con la conversión de texto a voz.
+Requerimientos y Consideraciones:
+Bibliotecas necesarias para ejecutar la aplicacion
+gTTs
+googletrans
+pygame
+customtkinter
+
+Seguido a esto ejecutar desde el archivo principal
