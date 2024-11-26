@@ -1,11 +1,11 @@
-from gtts import gTTS
+from gtts import gTTS # convertir texto a voz
 
-class ModeloTextoAVoz:
+class ModeloTextoAVoz: # clase modelo texto
     """Modelo que gestiona la conversión de texto a voz y la lista de idiomas disponibles."""
 
-    def __init__(self):
-        # Diccionario de idiomas disponibles (código del idioma: nombre del idioma)
-        self.idiomas_disponibles = {
+    def __init__(self): #inicializamos la clase
+        
+        self.idiomas_disponibles = { #  # listado de idiomas disponibles 
             'Español': 'es',
             'Inglés': 'en',
             'Francés': 'fr',
@@ -19,18 +19,12 @@ class ModeloTextoAVoz:
             'Árabe': 'ar',
         }
 
-    def obtener_idiomas_disponibles(self):
-        """Devuelve el diccionario de idiomas disponibles."""
-        return self.idiomas_disponibles
+    def obtener_idiomas_disponibles(self): 
 
-    def convertir_texto_a_voz(self, texto, idioma):
-        """
-        Convierte el texto a un archivo de audio MP3 usando gTTS.
+        return self.idiomas_disponibles # devuelve al listado de idiomas disponibles 
+
+    def convertir_texto_a_voz(self, texto, idioma): # convierte el texto a un archivo de audio
         
-        :param texto: Texto a convertir.
-        :param idioma: Código del idioma (por ejemplo, 'es' para español).
-        :return: Ruta del archivo MP3 generado.
-        """
         try:
             # Crear el objeto gTTS para convertir texto a voz
             tts = gTTS(text=texto, lang=idioma, slow=False)
