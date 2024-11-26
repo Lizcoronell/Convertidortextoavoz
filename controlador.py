@@ -5,7 +5,6 @@ from gtts import gTTS # convierte el texto en voz
 from googletrans import Translator # toma el texto y lo traduce en el idioma indicado
 from pathlib import Path  # Importamos pathlib para manejar rutas
 
-
 class ControladorTextoAVoz: # clase controlador texto a voz
     
     def __init__(self): 
