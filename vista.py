@@ -1,10 +1,9 @@
-import customtkinter as ctk
-from tkinter import filedialog, messagebox
+import customtkinter as ctk # libreria para crear la interfaz
+from tkinter import filedialog, messagebox 
 
-class VistaTextoAVoz(ctk.CTk):
-    """Clase que maneja la interfaz gráfica."""
+class VistaTextoAVoz(ctk.CTk): # esta clase hereda de ctk.CTk y se encarga de crear y gestionar la interfaz gráfica.
     
-    def __init__(self, controlador):
+    def __init__(self, controlador): #inicializa la ventana principal
         super().__init__()
         self.title("Texto a Voz")
         self.geometry("600x600")  # Aumentar tamaño de la ventana para más opciones
@@ -13,8 +12,9 @@ class VistaTextoAVoz(ctk.CTk):
 
         self.crear_widgets()
 
-    def crear_widgets(self):
-        """Crear los widgets de la interfaz gráfica."""
+    def crear_widgets(self): # Crea todos los elementos de la interfaz, como etiquetas, botones, cuadros de texto y un menú desplegable para seleccionar el idioma.
+
+        
         self.lbl_texto = ctk.CTkLabel(self, text="Introduce el texto o carga un archivo:", text_color="black")
         self.lbl_texto.pack(pady=10)
 
@@ -40,7 +40,7 @@ class VistaTextoAVoz(ctk.CTk):
         self.btn_exportar = ctk.CTkButton(self, text="Exportar Audio", command=self.exportar_audio)
         self.btn_exportar.pack(pady=10)
 
-    def cargar_archivo_txt(self):
+    def cargar_archivo_txt(self): # Abre un diálogo para seleccionar un archivo de texto y carga su contenido 
         """Carga el contenido de un archivo de texto en el cuadro de texto."""
         archivo_ruta = filedialog.askopenfilename(
             title="Seleccionar archivo",
@@ -71,10 +71,9 @@ class VistaTextoAVoz(ctk.CTk):
         if idioma not in self.controlador.idiomas_validos:
             messagebox.showerror("Error", f"Idioma '{idioma}' no válido.")
             return
-
-        # Convertir texto a voz
-        archivo_audio = self.controlador.convertir_a_audio(texto, self.controlador.idiomas_validos[idioma])
-
+            
+        archivo_audio = self.controlador.convertir_a_audio(texto, self.controlador.idiomas_validos[idioma]) # convertir texto a voz
+      
         if archivo_audio:
             self.controlador.reproducir_audio(archivo_audio)
             messagebox.showinfo("Éxito", "Texto convertido a voz correctamente.")
@@ -85,19 +84,17 @@ class VistaTextoAVoz(ctk.CTk):
         """Permite al usuario exportar el audio generado a una ubicación de su elección."""
         texto = self.txt_texto.get("1.0", "end-1c")
         idioma = self.combo_idioma.get()
-
-        # Verificar si hay texto ingresado
+       
         if texto.strip() == "":
-            messagebox.showerror("Error", "No se ingresó texto.")
+            messagebox.showerror("Error", "No se ingresó texto.") # Verificar si hay texto ingresado
             return
         
-        # Verificar si el idioma es válido
-        if idioma not in self.controlador.idiomas_validos:
+        if idioma not in self.controlador.idiomas_validos: # Verificar si el idioma es válido
+            
             messagebox.showerror("Error", f"Idioma '{idioma}' no válido.")
             return
         
-        # Convertir el texto a voz
-        archivo_audio = self.controlador.convertir_a_audio(texto, self.controlador.idiomas_validos[idioma])
+        archivo_audio = self.controlador.convertir_a_audio(texto, self.controlador.idiomas_validos[idioma])  #Convertir el texto a voz
 
         if archivo_audio:
             # Abrir el cuadro de diálogo para elegir la ubicación de exportación
